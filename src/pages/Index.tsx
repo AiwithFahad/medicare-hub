@@ -1,16 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/medicare/Navbar";
+import Hero from "@/components/medicare/Hero";
+import Stats from "@/components/medicare/Stats";
+import Departments from "@/components/medicare/Departments";
+import WhyChoose from "@/components/medicare/WhyChoose";
+import Doctors from "@/components/medicare/Doctors";
+import Reels from "@/components/medicare/Reels";
+import SmartHealth from "@/components/medicare/SmartHealth";
+import Explore3D from "@/components/medicare/Explore3D";
+import Testimonials from "@/components/medicare/Testimonials";
+import CTA from "@/components/medicare/CTA";
+import Footer from "@/components/medicare/Footer";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      <Stats />
+      <Departments />
+      <WhyChoose />
+      <Doctors />
+      <Reels />
+      <SmartHealth />
+      <Explore3D />
+      <Testimonials />
+      <CTA />
+      <Footer />
+    </main>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
