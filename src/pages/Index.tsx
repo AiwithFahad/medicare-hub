@@ -4,9 +4,9 @@ import Stats from "@/components/medicare/Stats";
 import Departments from "@/components/medicare/Departments";
 import WhyChoose from "@/components/medicare/WhyChoose";
 import Doctors from "@/components/medicare/Doctors";
-import Reels from "@/components/medicare/Reels";
+import PatientJourney from "@/components/medicare/PatientJourney";
 import SmartHealth from "@/components/medicare/SmartHealth";
-import Explore3D from "@/components/medicare/Explore3D";
+import SuccessStories from "@/components/medicare/SuccessStories";
 import Testimonials from "@/components/medicare/Testimonials";
 import CTA from "@/components/medicare/CTA";
 import Footer from "@/components/medicare/Footer";
@@ -20,9 +20,9 @@ const Index = () => {
       <Departments />
       <WhyChoose />
       <Doctors />
-      <Reels />
+      <PatientJourney />
       <SmartHealth />
-      <Explore3D />
+      <SuccessStories />
       <Testimonials />
       <CTA />
       <Footer />
