@@ -1,17 +1,6 @@
-import {
-  Pill, Scissors, Baby, Flower2, Microscope, Brain, FlaskConical, Activity, ArrowUpRight,
-} from "lucide-react";
-
-const departments = [
-  { icon: Pill, name: "Medicine", desc: "Expert internal medicine & allied subspecialty care." },
-  { icon: Scissors, name: "Surgery", desc: "Advanced surgical procedures with modern techniques." },
-  { icon: Baby, name: "Paediatrics", desc: "Compassionate child & neonatal healthcare." },
-  { icon: Flower2, name: "Gynaecology", desc: "Comprehensive women's health & maternity care." },
-  { icon: Microscope, name: "Laparoscopic", desc: "Minimally invasive surgery for faster recovery." },
-  { icon: Brain, name: "Neurorehab", desc: "Specialized neurological rehabilitation programs." },
-  { icon: FlaskConical, name: "Pharmacy", desc: "24/7 in-house pharmacy with verified medicines." },
-  { icon: Activity, name: "Diagnostics", desc: "State-of-the-art labs & imaging diagnostics." },
-];
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { departments } from "@/data/departments";
 
 const Departments = () => {
   return (
@@ -32,25 +21,38 @@ const Departments = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {departments.map((d, i) => (
-            <article
-              key={d.name}
-              className="group relative bg-gradient-card border border-border/60 rounded-2xl p-6 hover-lift cursor-pointer overflow-hidden"
+            <Link
+              key={d.slug}
+              to={`/departments/${d.slug}`}
+              className="group relative bg-gradient-card border border-border/60 rounded-2xl overflow-hidden hover-lift cursor-pointer block"
               style={{ animationDelay: `${i * 0.05}s` }}
             >
-              <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-gradient-cta opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500" />
-
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-gradient-cta transition-all duration-500 group-hover:rotate-6 group-hover:scale-110">
-                <d.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={d.image}
+                  alt={`${d.name} department`}
+                  width={1280}
+                  height={832}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+                <div className="absolute top-3 left-3 w-11 h-11 rounded-xl bg-background/90 backdrop-blur flex items-center justify-center shadow-soft">
+                  <d.icon className="w-5 h-5 text-primary" />
+                </div>
               </div>
 
-              <h3 className="font-display text-xl font-bold mb-2">{d.name}</h3>
-              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">{d.desc}</p>
-
-              <button className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group/link">
-                Learn More
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-              </button>
-            </article>
+              <div className="p-5">
+                <h3 className="font-display text-lg font-bold mb-1.5">{d.name}</h3>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-2">
+                  {d.desc}
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  Learn More
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
